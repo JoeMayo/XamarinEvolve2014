@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AsyncAndXamarinForms.InteractionPage"
+	xmlns:anx="clr-namespace:AsyncAndXamarinForms;assembly=AsyncAndXamarinForms.Android"
+	Title="Async Interaction Demo">
+	<Grid>
+		<Grid.BindingContext>
+			<anx:InteractionViewModel />
+		</Grid.BindingContext>
+		<Grid.Resources>
+		</Grid.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="10*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="30*"/>
+		</Grid.RowDefinitions>
+
+		<Label Grid.Row="1" Text="Progress Options:"/>
+		<ProgressBar Grid.Row="2" Progress="{Binding ProgressPercent}"/>
+		<Label Grid.Row="3" Text="{Binding ProgressText}"/>
+		<Button Grid.Row="4" Text="Start" Command="{Binding StartCommand}"/>
+
+		<Label Grid.Row="6" Text="Cancel Options:"/>
+		<ActivityIndicator Grid.Row="7" IsRunning="{Binding IsCancelling}"/>
+		<Button Grid.Row="8" Text="Stop" Command="{Binding StopCommand}"/>
+
+	</Grid>
+</ContentPage>
